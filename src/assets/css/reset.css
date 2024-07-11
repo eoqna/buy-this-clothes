@@ -65,6 +65,16 @@ body {
   font-family: nanumSquareNeo;
 }
 
-html::-webkit-scrollbar, body::-webkit-scrollbar, .inner-wrapper::-webkit-scrollbar {
-  display: none;
+html::-webkit-scrollbar {
+	width: 8px;
+}
+html::-webkit-scrollbar-track {
+	background-color: #ddd;
+}
+html::-webkit-scrollbar-thumb { 
+	background-color: #bbb;
+	border-radius: 4px;
+}
+html::-webkit-scrollbar-button {
+	display: none;
 }
