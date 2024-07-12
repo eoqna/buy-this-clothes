@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { Colors } from "../utils/color";
 import { headerMenu, userMenu } from "../contants";
+import useDataStore from "../store/useDataStore";
 
 const Layout = styled.header`
   display: flex;
-  position: fixed;
+  position: sticky;
   width: 96%;
   top: 0;
   left: 0;
@@ -37,6 +38,8 @@ const Text = styled.a<{ $type: string }>`
 `;
 
 const Header = () => {
+  const { basket } = useDataStore();
+
   return (
     <Layout>
       <MenuLayout>
@@ -50,7 +53,9 @@ const Header = () => {
       <MenuLayout>
         {userMenu.map((item) => (
           <Menu key={item.idx}>
-            <Text $type="menu" href={item.path}>{item.text}</Text>
+            <Text $type="menu" href={item.path}>
+              {item.text === "Cart" ? `${item.text}(${basket.length})` : item.text}
+            </Text>
           </Menu>
         ))}
       </MenuLayout>

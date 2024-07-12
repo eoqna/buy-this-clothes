@@ -9,7 +9,7 @@ declare namespace Props {
     name: string;
     price: string;
     category: string;
-    before_img: string;
-    after_img: string;
+    default_img: string;
+    mouse_over_img: string;
   };
 };
