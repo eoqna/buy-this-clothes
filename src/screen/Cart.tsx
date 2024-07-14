@@ -81,6 +81,17 @@ const Cart = (props: CommonProps.ComponentProps) => {
           </ProductInfo>
           <RemoveButton>Remove</RemoveButton>
         </ProductLayout>
+        <ProductLayout>
+          <ProductImg src={`/img/product/top/pocket_t_shirt_white_f.png`}></ProductImg>
+          {/* <ProductImg src={`/img/product${basket[0].default_img}`}></ProductImg> */}
+          <ProductInfo>
+            <ProductInfoText>SHORT T-SHIRT BLACK</ProductInfoText>
+            <ProductInfoText>KRW 29,000</ProductInfoText>
+            <OptionText>[Option: 2]</OptionText>
+            <OptionText></OptionText>
+          </ProductInfo>
+          <RemoveButton>Remove</RemoveButton>
+        </ProductLayout>
       </ProductsLayout>
       <PriceLayout>
 
