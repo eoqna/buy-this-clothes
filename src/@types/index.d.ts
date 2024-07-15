@@ -11,5 +11,6 @@ declare namespace Props {
     category: string;
     default_img: string;
     mouse_over_img: string;
+    option: string[];
   };
 };

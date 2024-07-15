@@ -51,6 +51,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 29,000",
     default_img: "/top/t_shirt_black_f.png",
     mouse_over_img: "/top/t_shirt_black_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHORT T-SHIRT WHITE",
@@ -58,6 +59,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 29,000",
     default_img: "/top/t_shirt_white_f.png",
     mouse_over_img: "/top/t_shirt_white_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHORT T-SHIRT RED",
@@ -65,6 +67,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 29,000",
     default_img: "/top/t_shirt_red_f.png",
     mouse_over_img: "/top/t_shirt_red_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHORT T-SHIRT CHARCOAL",
@@ -72,6 +75,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 29,000",
     default_img: "/top/t_shirt_charcoal_f.png",
     mouse_over_img: "/top/t_shirt_charcoal_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "POCKET T-SHIRT BLACK",
@@ -79,6 +83,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 39,000",
     default_img: "/top/pocket_t_shirt_black_f.png",
     mouse_over_img: "/top/pocket_t_shirt_black_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "POCKET T-SHIRT WHITE",
@@ -86,6 +91,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 39,000",
     default_img: "/top/pocket_t_shirt_white_f.png",
     mouse_over_img: "/top/pocket_t_shirt_white_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "POCKET T-SHIRT RED",
@@ -93,6 +99,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 39,000",
     default_img: "/top/pocket_t_shirt_red_f.png",
     mouse_over_img: "/top/pocket_t_shirt_red_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "POCKET T-SHIRT CHARCOAL",
@@ -100,6 +107,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 39,000",
     default_img: "/top/pocket_t_shirt_charcoal_f.png",
     mouse_over_img: "/top/pocket_t_shirt_charcoal_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "TWO BUTTON JACKET BLACK",
@@ -107,6 +115,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 79,000",
     default_img: "/outer/two_button_jacket_black_f.png",
     mouse_over_img: "/outer/two_button_jacket_black_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "TWO BUTTON JACKET CHARCOAL",
@@ -114,6 +123,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 79,000",
     default_img: "/outer/two_button_jacket_charcoal_f.png",
     mouse_over_img: "/outer/two_button_jacket_charcoal_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHORT SLEEVE SHIRT PINK",
@@ -121,6 +131,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 59,000",
     default_img: "/outer/short_sleeve_shirt_pink_f.png",
     mouse_over_img: "/outer/short_sleeve_shirt_pink_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHORT SLEEVE SHIRT BROWN",
@@ -128,6 +139,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 59,000",
     default_img: "/outer/short_sleeve_shirt_brown_f.png",
     mouse_over_img: "/outer/short_sleeve_shirt_brown_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHORT SLEEVE SHIRT LIGHT PURPLE",
@@ -135,6 +147,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 59,000",
     default_img: "/outer/short_sleeve_shirt_light_purple_f.png",
     mouse_over_img: "/outer/short_sleeve_shirt_light_purple_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHORT SLEEVE SHIRT SKY BLUE",
@@ -142,6 +155,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 59,000",
     default_img: "/outer/short_sleeve_shirt_sky_blue_f.png",
     mouse_over_img: "/outer/short_sleeve_shirt_sky_blue_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "REGULAR PANTS BLACK",
@@ -149,6 +163,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 49,000",
     default_img: "/bottom/regular_pants_black_f.png",
     mouse_over_img: "/bottom/regular_pants_black_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "REGULAR PANTS CHARCOAL",
@@ -156,6 +171,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 49,000",
     default_img: "/bottom/regular_pants_charcoal_f.png",
     mouse_over_img: "/bottom/regular_pants_charcoal_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "REGULAR PANTS KHAKI",
@@ -163,6 +179,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 49,000",
     default_img: "/bottom/regular_pants_khaki_f.png",
     mouse_over_img: "/bottom/regular_pants_khaki_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "REGULAR PANTS DARK BLUE",
@@ -170,6 +187,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 49,000",
     default_img: "/bottom/regular_pants_dark_blue_f.png",
     mouse_over_img: "/bottom/regular_pants_dark_blue_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "REGULAR PANTS MIDDLE BLUE",
@@ -177,6 +195,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 49,000",
     default_img: "/bottom/regular_pants_middle_blue_f.png",
     mouse_over_img: "/bottom/regular_pants_middle_blue_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "REGULAR PANTS LIGHT BLUE",
@@ -184,6 +203,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 49,000",
     default_img: "/bottom/regular_pants_light_blue_f.png",
     mouse_over_img: "/bottom/regular_pants_light_blue_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "REGULAR PANTS PINK",
@@ -191,6 +211,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 49,000",
     default_img: "/bottom/regular_pants_pink_f.png",
     mouse_over_img: "/bottom/regular_pants_pink_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHOUDLER BAG BLACK",
@@ -198,6 +219,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 59,000",
     default_img: "/acc/bag_black_f.png",
     mouse_over_img: "/acc/bag_black_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHOUDLER BAG SILVER",
@@ -205,6 +227,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 59,000",
     default_img: "/acc/bag_silver_f.png",
     mouse_over_img: "/acc/bag_silver_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHOUDLER BAG GREEN",
@@ -212,6 +235,7 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 79,000",
     default_img: "/acc/shoulder_bag_green_f.png",
     mouse_over_img: "/acc/shoulder_bag_green_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
   {
     name: "SHOUDLER BAG SILVER",
@@ -219,5 +243,6 @@ export const clothes: Props.ClothInfo[] = [
     price: "KRW 79,000",
     default_img: "/acc/shoulder_bag_silver_f.png",
     mouse_over_img: "/acc/shoulder_bag_silver_b.png",
+    option: ["S", "M", "L", "XL", "2XL"],
   },
 ];

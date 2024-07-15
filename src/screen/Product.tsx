@@ -88,8 +88,10 @@ const Product = (props: CommonProps.ComponentProps) => {
   const onClickLoadMoreButton = useCallback(() => {
     if( page === allPage ) return;
 
+    const tmpArr = clothes.filter((_, i) => i >= showProducts.length && i < showProducts.length + 8);
+
     setPage(prev => prev+1);
-    setShowProducts(clothes.filter((_, i) => i < showProducts.length + 8));
+    setShowProducts(prev => prev.concat(tmpArr));
   }, [page, showProducts]);
 
   return (
