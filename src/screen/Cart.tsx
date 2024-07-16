@@ -106,6 +106,7 @@ const ButtonLayout = styled.div`
 const OrderButton = styled.a`
   color: ${Colors.White};
   font-size: 0.8rem;
+  cursor: pointer;
 `;
 
 const Cart = (props: CommonProps.ComponentProps) => {
