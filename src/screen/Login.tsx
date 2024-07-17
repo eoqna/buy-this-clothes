@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { CommonProps } from "../navigation";
 import { useCallback, useRef, useState } from "react";
+import { Colors } from "../utils/color";
 
 const Layout = styled.div`
   width: 100%;
@@ -12,6 +13,7 @@ const Layout = styled.div`
 
 const LoginLayout = styled.form`
   width: 35%;
+  padding: 0 10px;
 `;
 
 const InputLayout = styled.div`
@@ -25,11 +27,48 @@ const Label = styled.p`
 `;
 
 const Input = styled.input`
-  width: 100%;
+  width: calc(100% - 1.3rem);
   border: 1px solid #eee;
   padding: 0.65rem;
   font-size: 0.75rem;
   outline: none;
+`;
+
+const ButtonLayout = styled.div<{ $type: string }>`
+  width: calc(100% - 20px);
+  margin-top: ${props => props.$type === "login" ? "20px" : "10px" };
+  padding: 10px;
+  color: ${props => props.$type === "login" ? Colors.Black : Colors.White };
+  background: ${props => props.$type === "login" ? Colors.White : Colors.Black };
+  border: 1px solid #eee;
+  text-align: center;
+  cursor: pointer;
+`;
+
+const ButtonText = styled.a<{ $position: string }>`
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0 8px;
+  ${props => props.$position === "right" && "border-left: 1px solid black;"}
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+`;
+
+const SubButtonLayout = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+`;
+
+const FindButtonLayout = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 interface LoginProps {
@@ -83,6 +122,22 @@ const Login = (props: CommonProps.ComponentProps) => {
             placeholder="비밀번호"
           />
         </InputLayout>
+        <ButtonLayout $type="login">
+          <ButtonText $position="none">Login</ButtonText>
+        </ButtonLayout>
+        
+        <ButtonLayout $type="sign_up">
+          <ButtonText $position="none">Sign Up</ButtonText>
+        </ButtonLayout>
+        <SubButtonLayout>
+          <FindButtonLayout>
+            <ButtonText $position="none">Find</ButtonText>
+            <ButtonText $position="right">Find Password</ButtonText>
+          </FindButtonLayout>
+          <FindButtonLayout>
+            <ButtonText $position="none">Non-Member</ButtonText>
+          </FindButtonLayout>
+        </SubButtonLayout>
       </LoginLayout>
     </Layout>
   );
