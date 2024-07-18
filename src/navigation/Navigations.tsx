@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Home from "../screen/Home";
 import Product from "../screen/Product";
 import Cart from "../screen/Cart";
-import Login from "../screen/Login";
+import Login from "../screen/start/Login";
 
 const Main = styled.main`
   width: 100%;

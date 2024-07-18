@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { CommonProps } from "../navigation";
+import { CommonProps } from "../../navigation";
 import { useCallback, useRef, useState } from "react";
-import { Colors } from "../utils/color";
+import { Colors } from "../../utils/color";
 
 const Layout = styled.div`
   width: 100%;
