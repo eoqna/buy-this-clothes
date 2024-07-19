@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import { CommonProps } from "../../navigation";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Colors } from "../../utils/color";
+import useAppStore from "../../store/useAppStore";
 
 const Layout = styled.div`
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 8rem;
 `;
 
 const LoginLayout = styled.form`
@@ -83,23 +84,42 @@ const defaultLoginInfo: LoginProps = {
 
 const Login = (props: CommonProps.ComponentProps) => {
   const { navigation } = props;
+  const { isLogin, setIsLogin } = useAppStore();
   const [ loginInfo, setLoginInfo ] = useState(defaultLoginInfo);
   const idRef = useRef<HTMLInputElement>(null);
   const pwRef = useRef<HTMLInputElement>(null);
 
+  useEffect(() => {
+    console.log(isLogin);
+
+    if( isLogin ) navigation("/");
+  }, []);
+
   const validation = useCallback(() => {
-    if( idRef.current?.value === null ) {
-      return alert("아이디를 입력해 주세요.");
+    if( idRef.current?.value === "" ) {
+      idRef.current.focus();
+      alert("아이디를 입력해 주세요.");
+      return;
     }
 
-    if( pwRef.current?.value === null ) {
-      return alert("비밀번호를 입력해 주세요.")
+    if( pwRef.current?.value === "" ) {
+      pwRef.current.focus();
+      alert("비밀번호를 입력해 주세요.");
+      return;
     }
   }, []);
 
   const submit = useCallback(() => {
     validation();
-  }, []);
+
+    if( loginInfo.id === "1" && loginInfo.pw === "1") {
+      navigation("/");
+      setIsLogin(true);
+      return;
+    }
+
+    alert("아이디 또는 비밀번호가 다릅니다.");
+  }, [loginInfo, isLogin]);
 
   return (
     <Layout>
@@ -107,6 +127,7 @@ const Login = (props: CommonProps.ComponentProps) => {
         <InputLayout>
           <Label>ID</Label>
           <Input
+            type="text"
             value={loginInfo.id}
             onChange={(e) => setLoginInfo({...loginInfo, id: e.target.value})}
             ref={idRef}
@@ -116,13 +137,15 @@ const Login = (props: CommonProps.ComponentProps) => {
         <InputLayout>
           <Label>Password</Label>
           <Input
+            type="password"
+            autoComplete="pw"
             value={loginInfo.pw}
             onChange={(e) => setLoginInfo({...loginInfo, pw: e.target.value})}
             ref={pwRef}
             placeholder="비밀번호"
           />
         </InputLayout>
-        <ButtonLayout $type="login">
+        <ButtonLayout $type="login" onClick={submit}>
           <ButtonText $position="none">Login</ButtonText>
         </ButtonLayout>
         

@@ -8,6 +8,8 @@ interface ModalState {
 interface DataState {
   modal: ModalState;
   openModal: (data: ModalState) => void;
+  isLogin: boolean;
+  setIsLogin: (data: boolean) => void;
 };
 
 const defaultModalState: ModalState = {
@@ -18,6 +20,8 @@ const defaultModalState: ModalState = {
 const useAppStore = create<DataState>()((set) => ({
   modal: defaultModalState,
   openModal: (data) => set({ modal: data }),
+  isLogin: false,
+  setIsLogin: (data) => set({ isLogin: data }),
 }));
 
 export default useAppStore;

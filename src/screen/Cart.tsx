@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { CommonProps } from "../navigation";
 import useDataStore from "../store/useDataStore";
 import { Colors } from "../utils/color";
+import { useCallback, useEffect, useState } from "react";
 
 const CartLayout = styled.div`
   display: flex;
@@ -110,40 +111,41 @@ const OrderButton = styled.a`
 `;
 
 const Cart = (props: CommonProps.ComponentProps) => {
-  const { basket } = useDataStore();
+  const { basket, setBasket } = useDataStore();
+  const [ totalPrice, setTotalPrice ] = useState("");
+
+  useEffect(() => {
+    let num = basket.reduce((acc, cur) => acc + Number(cur.price.replace(",", "")), 0);
+
+    setTotalPrice(num.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+  }, []);
+
+  const onClickRemoveButton = useCallback((item: Props.ClothInfo) => {
+    setBasket(basket.filter((v) => v.name === item.name));
+  }, [basket]);
 
   return (
     <CartLayout>
       <ProductsLayout>
         <Title>Cart</Title>
-        <ProductLayout>
-          <ProductImg src={`/img/product/top/t_shirt_black_f.png`}></ProductImg>
-          {/* <ProductImg src={`/img/product${basket[0].default_img}`}></ProductImg> */}
-          <ProductInfo>
-            <ProductInfoText>SHORT T-SHIRT BLACK</ProductInfoText>
-            <ProductInfoText>KRW 29,000</ProductInfoText>
-            <OptionText>[Option: 2]</OptionText>
-            <OptionText></OptionText>
-          </ProductInfo>
-          <RemoveButton>Remove</RemoveButton>
-        </ProductLayout>
-        <ProductLayout>
-          <ProductImg src={`/img/product/top/pocket_t_shirt_white_f.png`}></ProductImg>
-          {/* <ProductImg src={`/img/product${basket[0].default_img}`}></ProductImg> */}
-          <ProductInfo>
-            <ProductInfoText>SHORT T-SHIRT BLACK</ProductInfoText>
-            <ProductInfoText>KRW 29,000</ProductInfoText>
-            <OptionText>[Option: 2]</OptionText>
-            <OptionText></OptionText>
-          </ProductInfo>
-          <RemoveButton>Remove</RemoveButton>
-        </ProductLayout>
+        {basket.map((item, idx) => (
+          <ProductLayout key={idx}>
+            <ProductImg src={`/img/product/${item.default_img}`}/>
+              <ProductInfo>
+                <ProductInfoText>{item.name}</ProductInfoText>
+                <ProductInfoText>{item.price}</ProductInfoText>
+                <OptionText>[Option: {item.option[0]}]</OptionText>
+                <OptionText>{item.quantity}</OptionText>
+              </ProductInfo>
+            <RemoveButton onClick={() => onClickRemoveButton(item)}>Remove</RemoveButton>
+          </ProductLayout>
+        ))}
       </ProductsLayout>
       <PriceLayout>
         <TotalSummaryLayout>
           <SummaryLayout>
             <SummaryStrong $type="normal">Subtotal</SummaryStrong>
-            <SumarryRightLayout>KRW 0</SumarryRightLayout>
+            <SumarryRightLayout>KRW {totalPrice}</SumarryRightLayout>
           </SummaryLayout>
           <SummaryLayout>
             <SummaryStrong $type="normal">Shipping</SummaryStrong>
@@ -153,7 +155,7 @@ const Cart = (props: CommonProps.ComponentProps) => {
         <TotalPriceLayout>
           <SummaryLayout>
             <SummaryStrong $type="bold">Total</SummaryStrong>
-            <SumarryRightLayout>KRW <SummaryStrong $type="bold">0</SummaryStrong></SumarryRightLayout>
+            <SumarryRightLayout>KRW <SummaryStrong $type="bold">{totalPrice}</SummaryStrong></SumarryRightLayout>
           </SummaryLayout>
         </TotalPriceLayout>
         <ButtonLayout>

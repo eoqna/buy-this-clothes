@@ -51,6 +51,7 @@ const MoreProductButton = styled.a`
 `;
 
 const Product = (props: CommonProps.ComponentProps) => {
+  const { navigation } = props;
   const location = useLocation();
   const path = location.pathname.substring(9, location.pathname.length);
   const [ products, setProducts ] = useState<Props.ClothInfo[]>([]);
@@ -64,7 +65,7 @@ const Product = (props: CommonProps.ComponentProps) => {
     } else {
       setProducts(clothes.filter(v => v.category === path));
     }
-  }, []);
+  }, [path]);
 
   useEffect(() => {
     if( products.length > 8 ) {
@@ -85,6 +86,10 @@ const Product = (props: CommonProps.ComponentProps) => {
     img.src = `/img/product${src}`;
   }, []);
 
+  const onClickCloth = useCallback((item: Props.ClothInfo) => {
+    navigation(`/product/${item.name}/${item.idx}/category/${item.category}/${item.idx}`, { state: item });
+  }, []);
+
   const onClickLoadMoreButton = useCallback(() => {
     if( page === allPage ) return;
 
@@ -97,15 +102,16 @@ const Product = (props: CommonProps.ComponentProps) => {
   return (
     <Layout>
       <ProductLayout>
-        {showProducts.map((item, idx) => (
+        {showProducts.map((item) => (
           <ProductInfo 
-            key={idx}
-            onMouseEnter={() => mouseEnterEvent(idx, item.mouse_over_img)}
-            onMouseLeave={() => mouseLeaveEvent(idx, item.default_img)}
+            key={item.idx}
+            onMouseEnter={() => mouseEnterEvent(item.idx, item.mouse_over_img)}
+            onMouseLeave={() => mouseLeaveEvent(item.idx, item.default_img)}
+            onClick={() => onClickCloth(item)}
           >
-            <ProductImg className={`product_${idx}`} alt="상품이미지" src={`/img/product${item.default_img}`} />
+            <ProductImg className={`product_${item.idx}`} alt="상품이미지" src={`/img/product${item.default_img}`} />
             <ProductText>{item.name}</ProductText>
-            <ProductText>{item.price}</ProductText>
+            <ProductText>KRW {item.price}</ProductText>
           </ProductInfo>
         ))}
       </ProductLayout>
