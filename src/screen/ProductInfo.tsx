@@ -184,7 +184,8 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
     setBasket(arr);
 
     confirm("장바구니에 상품이 정상적으로 담겼습니다.");
-    navigation("/order/cart")
+    
+    navigation("/order/cart");
 
   }, [basket, orderList]);
 
