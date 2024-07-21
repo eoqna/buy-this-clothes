@@ -111,19 +111,24 @@ const OrderButton = styled.a`
 `;
 
 const Cart = (props: CommonProps.ComponentProps) => {
+  const { navigation } = props;
   const { basket, setBasket } = useDataStore();
   const [ subPrice, setSubPrice ] = useState("");
   const [ totalPrice, setTotalPrice ] = useState("");
   const [ shipping, setShipping ] = useState("");
+
+  const convToNumber = useCallback((value: number) => {
+    return value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
+  }, []);
 
   const calculateTotalPrice = useCallback(() => {
     const sub = basket.reduce((acc, cur) => acc + Number(cur.price.replace(",", "")), 0);
     const sp = sub > 50000 ? 0 : 3000;
     const total = sub + sp;
 
-    setSubPrice(sub.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
-    setShipping(sp.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
-    setTotalPrice(total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","));
+    setSubPrice(convToNumber(sub));
+    setShipping(convToNumber(sp));
+    setTotalPrice(convToNumber(total));
   }, [subPrice, shipping, totalPrice]);
 
   useEffect(() => {
@@ -132,9 +137,8 @@ const Cart = (props: CommonProps.ComponentProps) => {
 
   const onClickRemoveButton = useCallback((item: Props.ClothInfo) => {
     setBasket(basket.filter((v) => v.name !== item.name));
-
-    calculateTotalPrice();
   }, [basket]);
+  
 
   return (
     <CartLayout>
