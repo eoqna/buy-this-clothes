@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
 import { clothes } from "../contants";
 import { Colors } from "../utils/color";
+import useConvert from "../hooks/useConvert";
 
 const Layout = styled.div`
   width: 100%;
@@ -53,6 +54,7 @@ const MoreProductButton = styled.a`
 const Product = (props: CommonProps.ComponentProps) => {
   const { navigation } = props;
   const location = useLocation();
+  const { convNumberFormat } = useConvert();
   const path = location.pathname.substring(9, location.pathname.length);
   const [ products, setProducts ] = useState<Props.ClothInfo[]>([]);
   const [ showProducts, setShowProducts ] = useState<Props.ClothInfo[]>([]);
@@ -111,7 +113,7 @@ const Product = (props: CommonProps.ComponentProps) => {
           >
             <ProductImg className={`product_${item.idx}`} alt="상품이미지" src={`/img/product${item.default_img}`} />
             <ProductText>{item.name}</ProductText>
-            <ProductText>KRW {item.price}</ProductText>
+            <ProductText>KRW {convNumberFormat(item.price)}</ProductText>
           </ProductInfo>
         ))}
       </ProductLayout>

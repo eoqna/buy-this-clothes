@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import { Colors } from "../utils/color";
 import { useCallback, useState } from "react";
 import useDataStore from "../store/useDataStore";
+import useConvert from "../hooks/useConvert";
 
 const Layout = styled.div`
   width: calc(100% - 3.75rem);
@@ -136,6 +137,7 @@ const ProductImage = styled.img`
 const ProductInfo = (props: CommonProps.ComponentProps) => {
   const { navigation } = props;
   const { basket, setBasket } = useDataStore();
+  const { convNumberFormat } = useConvert();
   const [ size, setSize ] = useState("discription");
   const [ orderList, setOrderList ] = useState<Props.ClothInfo[]>([]);
   const [ index, setIndex ] = useState(0); 
@@ -217,7 +219,7 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
         <ProductSubInfo $direction="right">
           <TotalPriceLayout>
             <SummaryLayout>
-              <TextLayout $type="title"><SummaryStrong $type="bold">KRW {price}</SummaryStrong></TextLayout>
+              <TextLayout $type="title"><SummaryStrong $type="bold">KRW {convNumberFormat(price)}</SummaryStrong></TextLayout>
               <TextLayout $type="content"><SummaryStrong $type="normal">SIZE</SummaryStrong></TextLayout>
             </SummaryLayout>
             <SelectBox value={size} onChange={(e) => onChangeSelectValue(e)}>
@@ -236,7 +238,7 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
                   </OrderProductInnerLayout>
                   <OrderProductInnerLayout $position="bottom">
                     <SummaryStrong $type="normal">- 1 +</SummaryStrong>
-                    <SummaryStrong $type="normal">KRW {item.price}</SummaryStrong>
+                    <SummaryStrong $type="normal">KRW {convNumberFormat(item.price)}</SummaryStrong>
                   </OrderProductInnerLayout>
                 </OrderProductLayout>
               ))}

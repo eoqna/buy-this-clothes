@@ -3,6 +3,7 @@ import { CommonProps } from "../navigation";
 import useDataStore from "../store/useDataStore";
 import { Colors } from "../utils/color";
 import { useCallback, useEffect, useState } from "react";
+import useConvert from "../hooks/useConvert";
 
 const CartLayout = styled.div`
   display: flex;
@@ -113,25 +114,31 @@ const OrderButton = styled.a`
 const Cart = (props: CommonProps.ComponentProps) => {
   const { navigation } = props;
   const { basket, setBasket } = useDataStore();
-  const [ subPrice, setSubPrice ] = useState("");
-  const [ totalPrice, setTotalPrice ] = useState("");
-  const [ shipping, setShipping ] = useState("");
-
-  const convToNumber = useCallback((value: number) => {
-    return value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")
-  }, []);
+  const { convNumberFormat } = useConvert();
+  const [ subPrice, setSubPrice ] = useState("0");
+  const [ totalPrice, setTotalPrice ] = useState("0");
+  const [ shipping, setShipping ] = useState("0");
 
   const calculateTotalPrice = useCallback(() => {
-    const sub = basket.reduce((acc, cur) => acc + Number(cur.price.replace(",", "")), 0);
-    const sp = sub > 50000 ? 0 : 3000;
+    const sub = basket.reduce((acc, cur) => acc + cur.price, 0);
+    const sp = (basket.length < 1 || sub > 50000) ? 0 : 3000;
     const total = sub + sp;
 
-    setSubPrice(convToNumber(sub));
-    setShipping(convToNumber(sp));
-    setTotalPrice(convToNumber(total));
+    console.log(basket);
+
+    console.log(sub);
+    console.log(sp);
+    console.log(total);
+
+
+    setSubPrice(convNumberFormat(sub));
+    setShipping(convNumberFormat(sp));
+    setTotalPrice(convNumberFormat(total));
   }, [subPrice, shipping, totalPrice]);
 
   useEffect(() => {
+    console.log("실행");
+
     calculateTotalPrice();
   }, [basket]);
 
@@ -149,7 +156,7 @@ const Cart = (props: CommonProps.ComponentProps) => {
             <ProductImg src={`/img/product/${item.default_img}`}/>
               <ProductInfo>
                 <ProductInfoText>{item.name}</ProductInfoText>
-                <ProductInfoText>{item.price}</ProductInfoText>
+                <ProductInfoText>{convNumberFormat(item.price)}</ProductInfoText>
                 <OptionText>[Option: {item.option[0]}]</OptionText>
                 <OptionText>{item.quantity}</OptionText>
               </ProductInfo>

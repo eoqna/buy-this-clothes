@@ -8,8 +8,8 @@ declare namespace Props {
   interface ClothInfo {
     idx: number;
     name: string;
-    price: string;
-    category: string;
+    price: number;
+    category: "top" | "outer" | "bottom" | "acc";
     default_img: string;
     mouse_over_img: string;
     option: string[];
