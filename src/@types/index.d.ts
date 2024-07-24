@@ -15,4 +15,11 @@ declare namespace Props {
     option: string[];
     quantity?: number;
   };
+
+  interface FaqInfo {
+    idx: number;
+    category: "주문/결제" | "제품" | "배송" | "교환" | "취소/환불";
+    title: string;
+    content: string;
+  };
 };

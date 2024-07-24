@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Colors } from "../utils/color";
-import { headerMenu, userMenu } from "../contants";
+import { headerMenu, userMenu } from "../contants/menu";
 import useDataStore from "../store/useDataStore";
 import { CommonProps } from "../navigation";
 import { useCallback } from "react";

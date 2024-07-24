@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { CommonProps } from "../navigation";
 import { useLocation } from "react-router-dom";
 import { useCallback, useEffect, useState } from "react";
-import { clothes } from "../contants";
+import { clothes } from "../contants/cloth";
 import { Colors } from "../utils/color";
 import useConvert from "../hooks/useConvert";
 
