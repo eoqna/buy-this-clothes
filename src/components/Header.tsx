@@ -3,7 +3,8 @@ import { Colors } from "../utils/color";
 import { headerMenu, userMenu } from "../contants/menu";
 import useDataStore from "../store/useDataStore";
 import { CommonProps } from "../navigation";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
+import useAppStore from "../store/useAppStore";
 
 const Layout = styled.header`
   display: flex;
@@ -42,7 +43,15 @@ const Text = styled.a<{ $type: string }>`
 
 const Header = (props: CommonProps.ComponentProps) => {
   const { navigation } = props;
+  const { isLogin } = useAppStore();
   const { basket } = useDataStore();
+  const [ menus, setMenus ] = useState<Props.HeaderMenu[]>([]);
+
+  useEffect(() => {
+    const login = isLogin ? "false" : "true";
+    const menu = userMenu.filter((v) => v.login !== login);
+    setMenus(menu);
+  }, [isLogin]);
 
   const onClickMenu = useCallback((path: string) => {
     navigation(path);
@@ -59,7 +68,7 @@ const Header = (props: CommonProps.ComponentProps) => {
       </MenuLayout>
       <Text $type="logo" onClick={() => onClickMenu("/")}>BUY THIS CLOTHES</Text>
       <MenuLayout>
-        {userMenu.map((item) => (
+        {menus.map((item) => (
           <Menu key={item.idx}>
             <Text $type="menu" onClick={() => onClickMenu(item.path)}>
               {item.text === "Cart" ? `${item.text}(${basket.length})` : item.text}

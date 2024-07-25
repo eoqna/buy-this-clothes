@@ -1,96 +1,78 @@
-import { CommonProps } from "../../navigation";
 import { 
-  FlexLayout,ButtonLayout,
-  OptionText, OrderButton,
-  PriceLayout, ProductImg,
-  ProductInfo, ProductInfoText,
-  ProductLayout, ProductsLayout,
-  RemoveButton, SumarryRightLayout,
-  SummaryLayout, SummaryStrong,
-  Title, TotalPriceLayout,
-  TotalSummaryLayout
+  FlexLayout, PriceLayout, 
+  ProductsLayout, Title,
 } from "../../assets/css/menu";
-import styled from "styled-components";
-import { faqs, menu } from "../../contants/faqs";
-import { useCallback, useState } from "react";
+import { 
+  MenuLayout, CategoryText, 
+  ContentLayout, ContentText,
+  FAQLayout, TitleLayout,
+  TitleTextLayout 
+} from "../../assets/css/faqs";
+import { defaultSelect, faqs, menu } from "../../contants/faqs";
+import { useCallback, useEffect, useState } from "react";
 import Icon from "@mdi/react";
-import { mdiChevronDown, mdiChevronRight } from "@mdi/js";
-import { Colors } from "../../utils/color";
+import { mdiChevronDown, mdiChevronRight, mdiChevronUp } from "@mdi/js";
 
-const MenuLayout = styled.div<{ $select: boolean }>`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-bottom: 1.2rem;
-  font-size: 0.9rem;
-  cursor: pointer;
-  ${props => props.$select && "font-weight: bold;"}
-`;
-
-const FAQLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const TitleLayout = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  border-top: 1px solid #ccc;
-  cursor: pointer;
-`;
-
-const TitleTextLayout = styled.div``;
-
-const CategoryText = styled.span`
-  font-size: 0.8rem;
-  font-weight: bold;
-  color: #ccc;
-`;
-
-const ContentText = styled.span`
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: ${Colors.Black};
-`;
-
-const ContentLayout = styled.div`
-  display: none;
-`;
-
-const defaultSelect = [true, false, false, false, false, false];
-
-const FAQs = (props: CommonProps.ComponentProps) => {
+const FAQs = () => {
   const [ select, setSelect ] = useState(defaultSelect);
+  const [ contents, setContents ] = useState<Props.FaqInfo[]>([]);
+
+  useEffect(() => {
+    faqs.map((v) => v.open=false);
+    
+    setContents(faqs);
+  }, []);
 
   const onClickMenu = useCallback((item: string, idx: number) => {
     let ds = [false, false, false, false, false, false];
-    
     ds[idx] = true;
+    faqs.map((v) => v.open=false);
 
+    if( item === "전체" ) {
+      setContents(faqs);
+    } else {
+      const tmp = faqs.filter((v) => v.category === item);
+      setContents(tmp);
+    }
+    
     setSelect(ds);
   }, [select]);
+
+  const onClickFAQ = useCallback((i: number) => {
+    let copy = [...contents];
+    copy[i].open = !copy[i].open;
+
+    setContents(copy);
+  }, [contents]);
 
   return (
     <FlexLayout>
       <ProductsLayout $right={false}>
         <Title>FAQs</Title>
         {menu.map((item, i) => (
-          <MenuLayout key={i} $select={select[i]} onClick={() => onClickMenu(item, i)}>{item}<Icon path={mdiChevronRight} size={0.8}/></MenuLayout>
+          <MenuLayout key={i} $select={select[i]} onClick={() => onClickMenu(item, i)}>
+            {item}<Icon path={mdiChevronRight} size={0.8}/>
+          </MenuLayout>
         ))}
       </ProductsLayout>
       <PriceLayout $left={false}>
-        {faqs.map((col) => (
-          <FAQLayout>
+        {contents.map((col, i) => (
+          <FAQLayout key={col.idx} onClick={() => onClickFAQ(i)}>
             <TitleLayout>
               <TitleTextLayout>
                 <CategoryText>{`[${col.category}] `}</CategoryText>
-                <ContentText>{col.title}</ContentText>
+                <ContentText $title={true}>{col.title}</ContentText>
               </TitleTextLayout>
-              <Icon path={mdiChevronDown} size={0.8} color={"#ccc"} />
+              {col.open
+                ? <Icon path={mdiChevronUp} size={0.8} color={"#ccc"} />
+                : <Icon path={mdiChevronDown} size={0.8} color={"#ccc"} />
+              }
             </TitleLayout>
+            {col.open &&
+              <ContentLayout className={`faq_content_${i}`}>
+                <ContentText $title={false}>{col.content}</ContentText>
+              </ContentLayout>
+            }
           </FAQLayout>
         ))}
       </PriceLayout>

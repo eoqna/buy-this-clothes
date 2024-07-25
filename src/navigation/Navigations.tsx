@@ -9,6 +9,7 @@ import Header from "../components/Header";
 import Join from "../screen/start/Join";
 import FAQs from "../screen/start/FAQs";
 import NFP from "../screen/NFP";
+import MyPage from "../screen/MyPage";
 
 const Layout = styled.main`
   width: 100%;
@@ -31,7 +32,8 @@ const Navigations = () => {
           <Route index element={<Home navigation={navigation} />} />
           <Route path="/login" element={<Login navigation={navigation} />} />
           <Route path="/join" element={<Join navigation={navigation} />} />
-          <Route path="/faqs" element={<FAQs navigation={navigation} />} />
+          <Route path="/faqs" element={<FAQs />} />
+          <Route path="/mypage" element={<MyPage navigation={navigation} />} />
           <Route path="/product/:category" element={<Product navigation={navigation} />} />
           <Route path="/product/:name/:idx/category/:category/:idx" element={<ProductInfo navigation={navigation} />} />
           <Route path="/order/cart" element={<Cart navigation={navigation} />} />

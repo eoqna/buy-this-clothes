@@ -31,20 +31,24 @@ export const userMenu: Props.HeaderMenu[] = [
     idx: 0,
     text: "FAQs",
     path: "/faqs",
+    login: "all",
   },
   {
     idx: 1,
     text: "Login",
     path: "/login",
+    login: "false",
   },
   {
     idx: 2,
     text: "MyPage",
     path: "/mypage",
+    login: "true",
   },
   {
     idx: 3,
     text: "Cart",
     path: "/order/cart",
+    login: "all",
   },
 ];

@@ -5,6 +5,7 @@ import { Colors } from "../utils/color";
 import { useCallback, useState } from "react";
 import useDataStore from "../store/useDataStore";
 import useConvert from "../hooks/useConvert";
+import useConfirm from "../hooks/useConfirm";
 
 const Layout = styled.div`
   width: calc(100% - 3.75rem);
@@ -138,6 +139,7 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
   const { navigation } = props;
   const { basket, setBasket } = useDataStore();
   const { convNumberFormat } = useConvert();
+  const { confirmAction } = useConfirm();
   const [ size, setSize ] = useState("discription");
   const [ orderList, setOrderList ] = useState<Props.ClothInfo[]>([]);
   const [ index, setIndex ] = useState(0); 
@@ -185,10 +187,10 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
 
     setBasket(arr);
 
-    confirm("장바구니에 상품이 정상적으로 담겼습니다.");
-    
-    navigation("/order/cart");
-
+    confirmAction("장바구니에 상품이 정상적으로 담겼습니다.\n장바구니로 이동하시겠습니까?",
+      () => navigation("/order/cart"),
+      () => { return },
+    );
   }, [basket, orderList]);
 
   return (

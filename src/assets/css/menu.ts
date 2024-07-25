@@ -43,11 +43,12 @@ export const ProductInfo = styled.div`
 export const ProductInfoText = styled.p`
   font-size: 0.8rem;
   font-weight: bold;
+  margin-bottom: 4px;
 `;
 
 export const OptionText = styled.p`
   font-size: 0.8rem;
-  margin-top: 10px;
+  margin: 10px 0;
 `;
 
 export const PriceLayout = styled.div<{ $left: boolean }>`

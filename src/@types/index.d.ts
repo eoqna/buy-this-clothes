@@ -3,6 +3,7 @@ declare namespace Props {
     idx: number;
     text: string;
     path: string;
+    login?: string;
   };
 
   interface ClothInfo {
@@ -16,10 +17,17 @@ declare namespace Props {
     quantity?: number;
   };
 
+  interface OrderInfo extends ClothInfo {
+    status: "배송완료" | "배송중" | "결제대기" | "결제완료" | "반품처리중",
+    buy_date: string;
+    order_id: string;
+  };
+
   interface FaqInfo {
     idx: number;
     category: "주문/결제" | "제품" | "배송" | "교환" | "취소/환불";
     title: string;
     content: string;
+    open: boolean;
   };
 };

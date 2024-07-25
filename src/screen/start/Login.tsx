@@ -8,6 +8,7 @@ import {
   Layout, LoginLayout, 
   SubButtonLayout,
 } from "../../assets/css/login";
+import { setCookie } from "../../hooks/useCookie";
 
 interface LoginProps {
   id: string;
@@ -50,6 +51,7 @@ const Login = (props: CommonProps.ComponentProps) => {
     if( loginInfo.id === "1" && loginInfo.pw === "1") {
       navigation("/");
       setIsLogin(true);
+      setCookie("login", "1", {path: "/"})
       return;
     }
 

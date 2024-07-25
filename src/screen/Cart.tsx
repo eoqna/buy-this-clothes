@@ -47,12 +47,12 @@ const Cart = (props: CommonProps.ComponentProps) => {
         {basket.map((item, idx) => (
           <ProductLayout key={idx}>
             <ProductImg src={`/img/product/${item.default_img}`}/>
-              <ProductInfo>
-                <ProductInfoText>{item.name}</ProductInfoText>
-                <ProductInfoText>{convNumberFormat(item.price)}</ProductInfoText>
-                <OptionText>[Option: {item.option[0]}]</OptionText>
-                <OptionText>{item.quantity}</OptionText>
-              </ProductInfo>
+            <ProductInfo>
+              <ProductInfoText>{item.name}</ProductInfoText>
+              <ProductInfoText>{convNumberFormat(item.price)}</ProductInfoText>
+              <OptionText>[Option: {item.option[0]}]</OptionText>
+              <OptionText>{item.quantity}</OptionText>
+            </ProductInfo>
             <RemoveButton onClick={() => onClickRemoveButton(item)}>Remove</RemoveButton>
           </ProductLayout>
         ))}
