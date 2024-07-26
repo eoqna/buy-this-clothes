@@ -10,6 +10,9 @@ import Join from "../screen/start/Join";
 import FAQs from "../screen/start/FAQs";
 import NFP from "../screen/NFP";
 import MyPage from "../screen/MyPage";
+import { useEffect } from "react";
+import { getCookie } from "../hooks/useCookie";
+import useAppStore from "../store/useAppStore";
 
 const Layout = styled.main`
   width: 100%;
@@ -23,6 +26,15 @@ const Main = styled.div`
 
 const Navigations = () => {
   const navigation = useNavigate();
+  const { setIsLogin } = useAppStore();
+  
+  useEffect(() => {
+    if( !getCookie("login") ) {
+      navigation("/login");
+    } else {
+      setIsLogin(true);
+    }
+  }, []);
 
   return (
     <Layout>

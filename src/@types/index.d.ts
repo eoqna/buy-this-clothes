@@ -1,4 +1,12 @@
 declare namespace Props {
+  interface UserProps {
+    id: string;
+    pw: string;
+    mobile: string;
+    pwck: string;
+    name: string;
+  };
+
   interface HeaderMenu {
     idx: number;
     text: string;

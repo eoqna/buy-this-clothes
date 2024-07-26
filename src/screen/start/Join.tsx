@@ -7,15 +7,7 @@ import {
 } from "../../assets/css/login";
 import { useCallback, useState } from "react";
 
-interface JoinProps {
-  id: string;
-  pw: string;
-  mobile: string;
-  pwck: string;
-  name: string;
-};
-
-const defaultJoinInfo: JoinProps = {
+const defaultJoinInfo: Props.UserProps = {
   id: "",
   pw: "",
   mobile: "",
@@ -50,8 +42,6 @@ const Join = (props: CommonProps.ComponentProps) => {
   }, [joinInfo]);
 
   const submit = useCallback(() => {
-    console.log(joinInfo.mobile);
-
     if( validation() ) {
       alert("회원가입이 완료되었습니다.");
   
