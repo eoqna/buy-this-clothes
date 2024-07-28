@@ -14,8 +14,7 @@ import {
   TotalSummaryLayout
 } from "../assets/css/menu";
 
-const Cart = (props: CommonProps.ComponentProps) => {
-  const { navigation } = props;
+const Cart = () => {
   const { basket, setBasket } = useDataStore();
   const { convNumberFormat } = useConvert();
   const [ subPrice, setSubPrice ] = useState("0");

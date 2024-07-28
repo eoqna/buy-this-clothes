@@ -41,14 +41,14 @@ const Navigations = () => {
       <Header navigation={navigation} />
       <Main>
         <Routes>
-          <Route index element={<Home navigation={navigation} />} />
+          <Route index element={<Home />} />
           <Route path="/login" element={<Login navigation={navigation} />} />
           <Route path="/join" element={<Join navigation={navigation} />} />
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/mypage" element={<MyPage navigation={navigation} />} />
           <Route path="/product/:category" element={<Product navigation={navigation} />} />
           <Route path="/product/:name/:idx/category/:category/:idx" element={<ProductInfo navigation={navigation} />} />
-          <Route path="/order/cart" element={<Cart navigation={navigation} />} />
+          <Route path="/order/cart" element={<Cart />} />
           <Route path="/*" element={<NFP navigation={navigation} />} />
         </Routes>
       </Main>

@@ -14,8 +14,7 @@ const Layout = styled.div`
   align-items: center;
 `;
 
-const Home = (props: CommonProps.ComponentProps) => {
-  const { navigation } = props;
+const Home = () => {
   const [ images, setImages ] = useState([banner1, banner2, banner3]);
   const [ activeIndex, setActiveIndex ] = useState(0);
   
