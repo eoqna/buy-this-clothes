@@ -7,6 +7,7 @@ export const clothes: Props.ClothInfo[] = [
     default_img: "/top/t_shirt_black_f.png",
     mouse_over_img: "/top/t_shirt_black_b.png",
     option: ["S", "M", "L", "XL", "2XL"],
+    summary: ["겉감 : 면 100%", "전/후면 2도 나염", "Main Fabric : Cotton 100%", "Two-color pigment print on front and back", "*제품 색상은 제품 컷과 가장 유사합니다."],
   },
   {
     idx: 1,
@@ -16,6 +17,7 @@ export const clothes: Props.ClothInfo[] = [
     default_img: "/top/t_shirt_white_f.png",
     mouse_over_img: "/top/t_shirt_white_b.png",
     option: ["S", "M", "L", "XL", "2XL"],
+    summary: ["겉감 : 면 100%", "전/후면 2도 나염", "Main Fabric : Cotton 100%", "Two-color pigment print on front and back", "*제품 색상은 제품 컷과 가장 유사합니다."],
   },
   {
     idx: 2,
@@ -25,6 +27,7 @@ export const clothes: Props.ClothInfo[] = [
     default_img: "/top/t_shirt_red_f.png",
     mouse_over_img: "/top/t_shirt_red_b.png",
     option: ["S", "M", "L", "XL", "2XL"],
+    summary: ["겉감 : 면 100%", "전/후면 2도 나염", "Main Fabric : Cotton 100%", "Two-color pigment print on front and back", "*제품 색상은 제품 컷과 가장 유사합니다."],
   },
   {
     idx: 3,
@@ -34,6 +37,7 @@ export const clothes: Props.ClothInfo[] = [
     default_img: "/top/t_shirt_charcoal_f.png",
     mouse_over_img: "/top/t_shirt_charcoal_b.png",
     option: ["S", "M", "L", "XL", "2XL"],
+    summary: ["겉감 : 면 100%", "전/후면 2도 나염", "Main Fabric : Cotton 100%", "Two-color pigment print on front and back", "*제품 색상은 제품 컷과 가장 유사합니다."],
   },
   {
     idx: 4,
@@ -43,6 +47,7 @@ export const clothes: Props.ClothInfo[] = [
     default_img: "/top/pocket_t_shirt_black_f.png",
     mouse_over_img: "/top/pocket_t_shirt_black_b.png",
     option: ["S", "M", "L", "XL", "2XL"],
+    summary: ["겉감 : 면 100%", "전/후면 2도 나염", "Main Fabric : Cotton 100%", "Two-color pigment print on front and back", "*제품 색상은 제품 컷과 가장 유사합니다."],
   },
   {
     idx: 5,
@@ -52,6 +57,7 @@ export const clothes: Props.ClothInfo[] = [
     default_img: "/top/pocket_t_shirt_white_f.png",
     mouse_over_img: "/top/pocket_t_shirt_white_b.png",
     option: ["S", "M", "L", "XL", "2XL"],
+    summary: ["겉감 : 면 100%", "전/후면 2도 나염", "Main Fabric : Cotton 100%", "Two-color pigment print on front and back", "*제품 색상은 제품 컷과 가장 유사합니다."],
   },
   {
     idx: 6,
@@ -61,6 +67,7 @@ export const clothes: Props.ClothInfo[] = [
     default_img: "/top/pocket_t_shirt_red_f.png",
     mouse_over_img: "/top/pocket_t_shirt_red_b.png",
     option: ["S", "M", "L", "XL", "2XL"],
+    summary: ["겉감 : 면 100%", "전/후면 2도 나염", "Main Fabric : Cotton 100%", "Two-color pigment print on front and back", "*제품 색상은 제품 컷과 가장 유사합니다."],
   },
   {
     idx: 7,
@@ -70,6 +77,7 @@ export const clothes: Props.ClothInfo[] = [
     default_img: "/top/pocket_t_shirt_charcoal_f.png",
     mouse_over_img: "/top/pocket_t_shirt_charcoal_b.png",
     option: ["S", "M", "L", "XL", "2XL"],
+    summary: ["겉감 : 면 100%", "전/후면 2도 나염", "Main Fabric : Cotton 100%", "Two-color pigment print on front and back", "*제품 색상은 제품 컷과 가장 유사합니다."],
   },
   {
     idx: 8,

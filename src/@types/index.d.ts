@@ -23,6 +23,7 @@ declare namespace Props {
     mouse_over_img: string;
     option: string[];
     quantity?: number;
+    summary?: string[];
   };
 
   interface OrderInfo extends ClothInfo {
