@@ -1,4 +1,3 @@
-import { CommonProps } from "../navigation";
 import useDataStore from "../store/useDataStore";
 import { useCallback, useEffect, useState } from "react";
 import useConvert from "../hooks/useConvert";

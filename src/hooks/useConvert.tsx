@@ -7,7 +7,7 @@ const useConvert = () => {
 
   return {
     convNumberFormat,
-  }
+  };
 };
 
 export default useConvert;

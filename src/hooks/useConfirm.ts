@@ -23,7 +23,7 @@ const useConfirm = () => {
 
   return {
     confirmAction,
-  }
+  };
 };
 
 export default useConfirm;

@@ -1,7 +1,10 @@
 declare namespace Props {
-  interface UserProps {
+  interface LoginProps {
     id: string;
     pw: string;
+  };
+
+  interface UserProps extends LoginProps {
     mobile: string;
     pwck: string;
     name: string;

@@ -10,12 +10,7 @@ import {
 } from "../../assets/css/login";
 import { setCookie } from "../../hooks/useCookie";
 
-interface LoginProps {
-  id: string;
-  pw: string;
-};
-
-const defaultLoginInfo: LoginProps = {
+const defaultLoginInfo: Props.LoginProps = {
   id: "",
   pw: "",
 };

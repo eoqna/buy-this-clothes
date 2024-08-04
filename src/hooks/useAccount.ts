@@ -12,7 +12,7 @@ const useAccount = () => {
 
   return {
     logout,
-  }
+  };
 };
 
 export default useAccount;
