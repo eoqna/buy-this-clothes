@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router";
+import { Route, Routes, useNavigate, useLocation } from "react-router";
 import styled from "styled-components";
 import Home from "../screen/Home";
 import Product from "../screen/Product";
@@ -25,10 +25,13 @@ const Main = styled.div`
 `;
 
 const Navigations = () => {
-  const navigation = useNavigate();
   const { setIsLogin } = useAppStore();
+  const navigation = useNavigate();
+  const location = useLocation();
   
   useEffect(() => {
+    if( location.pathname === "/" ) return;
+    
     if( !getCookie("login") ) {
       navigation("/login");
     } else {

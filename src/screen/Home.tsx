@@ -14,7 +14,7 @@ const Layout = styled.div`
 `;
 
 const Home = () => {
-  const [ images, setImages ] = useState([banner1, banner2, banner3]);
+  const images = [banner1, banner2, banner3];
   const [ activeIndex, setActiveIndex ] = useState(0);
   
   const nextSlice = useCallback(() => {

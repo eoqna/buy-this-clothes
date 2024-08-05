@@ -9,9 +9,7 @@ const FlexLayout = styled.div`
 
 const FindPassword = () => {
   return (
-    <FlexLayout>
-
-    </FlexLayout>
+    <FlexLayout></FlexLayout>
   );
 };
 
