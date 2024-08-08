@@ -2,16 +2,13 @@ import useDataStore from "../store/useDataStore";
 import { useCallback, useEffect, useState } from "react";
 import useConvert from "../hooks/useConvert";
 import { 
-  FlexLayout,ButtonLayout,
-  OptionText, OrderButton,
-  PriceLayout, ProductImg,
-  ProductInfo, ProductInfoText,
-  ProductLayout, ProductsLayout,
-  RemoveButton, SumarryRightLayout,
-  SummaryLayout, SummaryStrong,
-  Title, TotalPriceLayout,
-  TotalSummaryLayout
+  FlexLayout, OptionText, 
+  ProductImg, ProductInfo, 
+  ProductInfoText, ProductLayout, 
+  ProductsLayout, RemoveButton, 
+  Title,  
 } from "../assets/css/menu";
+import TotalPrice from "../components/TotalPrice";
 
 const Cart = () => {
   const { basket, setBasket } = useDataStore();
@@ -55,27 +52,7 @@ const Cart = () => {
           </ProductLayout>
         ))}
       </ProductsLayout>
-      <PriceLayout $left={true}>
-        <TotalSummaryLayout>
-          <SummaryLayout>
-            <SummaryStrong $type="normal">Subtotal</SummaryStrong>
-            <SumarryRightLayout>KRW {subPrice}</SumarryRightLayout>
-          </SummaryLayout>
-          <SummaryLayout>
-            <SummaryStrong $type="normal">Shipping</SummaryStrong>
-            <SumarryRightLayout>KRW {shipping}</SumarryRightLayout>
-          </SummaryLayout>
-        </TotalSummaryLayout>
-        <TotalPriceLayout>
-          <SummaryLayout>
-            <SummaryStrong $type="bold">Total</SummaryStrong>
-            <SumarryRightLayout>KRW <SummaryStrong $type="bold">{totalPrice}</SummaryStrong></SumarryRightLayout>
-          </SummaryLayout>
-        </TotalPriceLayout>
-        <ButtonLayout>
-          <OrderButton>Continue to Order</OrderButton>
-        </ButtonLayout>
-      </PriceLayout>
+      <TotalPrice subPrice={subPrice} shipping={shipping} totalPrice={totalPrice} />
     </FlexLayout>
   );
 };
