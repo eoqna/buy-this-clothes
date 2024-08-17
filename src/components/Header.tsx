@@ -5,6 +5,7 @@ import useDataStore from "../store/useDataStore";
 import { CommonProps } from "../navigation";
 import { useCallback, useEffect, useState } from "react";
 import useAppStore from "../store/useAppStore";
+import { Link } from "react-router-dom";
 
 const Layout = styled.header`
   display: flex;
@@ -33,7 +34,7 @@ const Menu = styled.li`
   }
 `;
 
-const Text = styled.a<{ $type: string }>`
+const Text = styled(Link)<{ $type: string }>`
   font-size: ${props => props.$type === "menu" ? "0.75rem" : "1.2rem"};
   color: ${Colors.Black};
   font-weight: bold;
@@ -53,24 +54,20 @@ const Header = (props: CommonProps.ComponentProps) => {
     setMenus(menu);
   }, [isLogin]);
 
-  const onClickMenu = useCallback((path: string) => {
-    navigation(path);
-  }, []);
-
   return (
     <Layout>
       <MenuLayout>
         {headerMenu.map((item) => (
           <Menu key={item.idx}>
-            <Text $type="menu" onClick={() => onClickMenu(item.path)}>{item.text}</Text>
+            <Text $type="menu" to={item.path}>{item.text}</Text>
           </Menu>
         ))}
       </MenuLayout>
-      <Text $type="logo" onClick={() => onClickMenu("/")}>BUY THIS CLOTHES</Text>
+      <Text $type="logo" to="/">BUY THIS CLOTHES</Text>
       <MenuLayout>
         {menus.map((item) => (
           <Menu key={item.idx}>
-            <Text $type="menu" onClick={() => onClickMenu(item.path)}>
+            <Text $type="menu" to={item.path}>
               {item.text === "Cart" ? `${item.text}(${basket.length})` : item.text}
             </Text>
           </Menu>

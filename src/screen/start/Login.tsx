@@ -51,6 +51,7 @@ const Login = (props: CommonProps.ComponentProps) => {
     }
 
     alert("아이디 또는 비밀번호가 다릅니다.");
+    setLoginInfo(defaultLoginInfo);
   }, [loginInfo, isLogin]);
 
   return (
