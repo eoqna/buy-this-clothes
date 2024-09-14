@@ -35,7 +35,7 @@ const MyPage = (props: CommonProps.ComponentProps) => {
           logout();
           navigation("/");
         },
-        () => { return; },
+        () => {},
       );
     } else {
       let ds = [false, false, false];

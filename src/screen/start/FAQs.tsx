@@ -56,21 +56,21 @@ const FAQs = () => {
         ))}
       </ProductsLayout>
       <PriceLayout $left={false}>
-        {contents.map((col, i) => (
-          <FAQLayout key={col.idx} onClick={() => onClickFAQ(i)}>
+        {contents.map((col) => (
+          <FAQLayout key={col.idx} onClick={() => onClickFAQ(col.idx)}>
             <TitleLayout>
               <TitleTextLayout>
                 <CategoryText>{`[${col.category}] `}</CategoryText>
-                <ContentText $title={true}>{col.title}</ContentText>
+                <ContentText $title>{col.title}</ContentText>
               </TitleTextLayout>
               {col.open
-                ? <Icon path={mdiChevronUp} size={0.8} color={"#ccc"} />
-                : <Icon path={mdiChevronDown} size={0.8} color={"#ccc"} />
+                ? <Icon path={mdiChevronUp} size={0.8} color="#ccc" />
+                : <Icon path={mdiChevronDown} size={0.8} color="#ccc" />
               }
             </TitleLayout>
             {col.open &&
-              <ContentLayout className={`faq_content_${i}`}>
-                <ContentText $title={false}>{col.content}</ContentText>
+              <ContentLayout className={`faq_content_${col.idx}`}>
+                <ContentText>{col.content}</ContentText>
               </ContentLayout>
             }
           </FAQLayout>

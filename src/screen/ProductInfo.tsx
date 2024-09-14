@@ -70,7 +70,7 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
 
     confirmAction("장바구니에 상품이 정상적으로 담겼습니다.\n장바구니로 이동하시겠습니까?",
       () => navigation("/order/cart"),
-      () => { return },
+      () => {},
     );
   }, [basket, orderList]);
 

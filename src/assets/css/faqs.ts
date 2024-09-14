@@ -8,7 +8,7 @@ export const MenuLayout = styled.div<{ $select: boolean }>`
   margin-bottom: 1.2rem;
   font-size: 0.9rem;
   cursor: pointer;
-  ${props => props.$select && "font-weight: bold;"}
+  ${({ $select }) => $select && "font-weight: bold;"}
 `;
 
 export const FAQLayout = styled.div`
@@ -38,9 +38,9 @@ export const CategoryText = styled.span`
   color: #ccc;
 `;
 
-export const ContentText = styled.span<{ $title: boolean }>`
-  font-size: ${props => props.$title ? "0.9rem" : "0.8rem"};
-  font-weight: ${props => props.$title ? "bold" : "normal"};
+export const ContentText = styled.span<{ $title?: boolean }>`
+  font-size: ${({ $title }) => $title ? "0.9rem" : "0.8rem"};
+  font-weight: ${({ $title }) => $title ? "bold" : "normal"};
   color: ${Colors.Black};
 `;
 

@@ -3,7 +3,7 @@ import { Colors } from "../utils/color";
 import { headerMenu, userMenu } from "../contants/menu";
 import useDataStore from "../store/useDataStore";
 import { CommonProps } from "../navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useAppStore from "../store/useAppStore";
 import { Link } from "react-router-dom";
 
