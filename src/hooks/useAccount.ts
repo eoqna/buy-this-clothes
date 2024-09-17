@@ -5,13 +5,13 @@ import { removeCookie } from "./useCookie";
 const useAccount = () => {
   const { isLogin, setIsLogin } = useAppStore();
 
-  const logout = useCallback(() => {
+  const onLogout = useCallback(() => {
     setIsLogin(false);
     removeCookie("login");
   }, [isLogin]);
 
   return {
-    logout,
+    onLogout,
   };
 };
 

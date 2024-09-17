@@ -32,22 +32,22 @@ export const Input = styled.input`
   outline: none;
 `;
 
-export const ButtonLayout = styled.div<{ $type: string }>`
+export const ButtonLayout = styled.div<{ $login?: boolean }>`
   width: calc(100% - 20px);
-  margin-top: ${props => props.$type === "login" ? "20px" : "10px" };
+  margin-top: ${({ $login }) => $login ? "20px" : "10px" };
   padding: 10px;
-  color: ${props => props.$type === "login" ? Colors.Black : Colors.White };
-  background: ${props => props.$type === "login" ? Colors.White : Colors.Black };
+  color: ${({ $login }) => $login ? Colors.Black : Colors.White };
+  background: ${({ $login }) => $login ? Colors.White : Colors.Black };
   border: 1px solid #eee;
   text-align: center;
   cursor: pointer;
 `;
 
-export const ButtonText = styled.a<{ $position: string }>`
+export const ButtonText = styled.a<{ $right?: boolean }>`
   font-size: 0.9rem;
   cursor: pointer;
   padding: 0 8px;
-  ${props => props.$position === "right" && "border-left: 1px solid black;"}
+  ${({ $right }) => $right && "border-left: 1px solid black;"}
   &:first-child {
     padding-left: 0;
   }

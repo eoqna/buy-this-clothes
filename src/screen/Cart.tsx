@@ -37,7 +37,7 @@ const Cart = () => {
 
   return (
     <FlexLayout>
-      <ProductsLayout $right={true}>
+      <ProductsLayout $right>
         <Title>Cart</Title>
         {basket.map((item, idx) => (
           <ProductLayout key={idx}>

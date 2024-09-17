@@ -78,20 +78,20 @@ const Login = (props: CommonProps.ComponentProps) => {
             placeholder="비밀번호"
           />
         </InputLayout>
-        <ButtonLayout $type="login" onClick={submit}>
-          <ButtonText $position="none">Login</ButtonText>
+        <ButtonLayout $login onClick={submit}>
+          <ButtonText>Login</ButtonText>
         </ButtonLayout>
         
-        <ButtonLayout $type="sign_up" onClick={() => navigation("/join")}>
-          <ButtonText $position="none">Sign Up</ButtonText>
+        <ButtonLayout onClick={() => navigation("/join")}>
+          <ButtonText>Sign Up</ButtonText>
         </ButtonLayout>
         <SubButtonLayout>
           <FindButtonLayout>
-            <ButtonText $position="none">Find</ButtonText>
-            <ButtonText $position="right">Find Password</ButtonText>
+            <ButtonText>Find</ButtonText>
+            <ButtonText $right>Find Password</ButtonText>
           </FindButtonLayout>
           <FindButtonLayout>
-            <ButtonText $position="none">Non-Member</ButtonText>
+            <ButtonText>Non-Member</ButtonText>
           </FindButtonLayout>
         </SubButtonLayout>
       </LoginLayout>

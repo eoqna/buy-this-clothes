@@ -14,10 +14,10 @@ export const Title = styled.p`
   margin-bottom: 2rem;
 `;
 
-export const ProductsLayout = styled.div<{ $right: boolean }>`
+export const ProductsLayout = styled.div<{ $right?: boolean }>`
   display: flex;
   flex-direction: column;
-  width: ${props => props.$right ? "42%" : "17%"};
+  width: ${({ $right }) => $right ? "42%" : "17%"};
 `;
 
 export const ProductLayout = styled.div`
@@ -51,9 +51,9 @@ export const OptionText = styled.p`
   margin: 10px 0;
 `;
 
-export const PriceLayout = styled.div<{ $left: boolean }>`
-  margin: 2.75rem 0 0 ${props=> props.$left ? "8.3%" : "0"};
-  width: ${props => props.$left ? "17%" : "42%"};
+export const PriceLayout = styled.div<{ $left?: boolean }>`
+  margin: 2.75rem 0 0 ${({ $left }) => $left ? "8.3%" : "0"};
+  width: ${({ $left }) => $left ? "17%" : "42%"};
   padding: 0 10px;
 `;
 
@@ -78,9 +78,9 @@ export const SummaryLayout = styled.div`
   width: 100%;
 `;
 
-export const SummaryStrong = styled.strong<{ $type: string }>`
+export const SummaryStrong = styled.strong<{ $bold?: boolean }>`
   font-size: 0.8rem;
-  font-weight: ${(props) => props.$type};
+  ${({ $bold }) => $bold && "font-weight: bold;"}
 `;
 
 export const SumarryRightLayout = styled.span`

@@ -89,21 +89,21 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
       <ProductInfoLayout>
         <ProductSubInfo $direction="left">
           <SummaryLayout>
-            <TextLayout $type="title"><SummaryStrong $type="bold">{name}</SummaryStrong></TextLayout>
-            <TextLayout $type="content">
-              <SummaryStrong $type="normal">겉감 : 면 100%</SummaryStrong><br />
-              <SummaryStrong $type="normal">전/후면 2도 나염</SummaryStrong><br /><br />
-              <SummaryStrong $type="normal">Main Fabric : Cotton 100%</SummaryStrong><br />
-              <SummaryStrong $type="normal">Two-color pigment print on front and back</SummaryStrong><br /><br /><br />
-              <SummaryStrong $type="normal">*제품 색상은 제품 컷과 가장 유사합니다.</SummaryStrong>
+            <TextLayout $title><SummaryStrong $bold>{name}</SummaryStrong></TextLayout>
+            <TextLayout>
+              <SummaryStrong>겉감 : 면 100%</SummaryStrong><br />
+              <SummaryStrong>전/후면 2도 나염</SummaryStrong><br /><br />
+              <SummaryStrong>Main Fabric : Cotton 100%</SummaryStrong><br />
+              <SummaryStrong>Two-color pigment print on front and back</SummaryStrong><br /><br /><br />
+              <SummaryStrong>*제품 색상은 제품 컷과 가장 유사합니다.</SummaryStrong>
             </TextLayout>
           </SummaryLayout>
         </ProductSubInfo>
         <ProductSubInfo $direction="right">
           <TotalPriceLayout>
             <SummaryLayout>
-              <TextLayout $type="title"><SummaryStrong $type="bold">KRW {convNumberFormat(price)}</SummaryStrong></TextLayout>
-              <TextLayout $type="content"><SummaryStrong $type="normal">SIZE</SummaryStrong></TextLayout>
+              <TextLayout $title><SummaryStrong $bold>KRW {convNumberFormat(price)}</SummaryStrong></TextLayout>
+              <TextLayout><SummaryStrong>SIZE</SummaryStrong></TextLayout>
             </SummaryLayout>
             <SelectBox value={size} onChange={(e) => onChangeSelectValue(e)}>
               <SelectOption value="discription">SELECT A SIZE</SelectOption>
@@ -115,13 +115,13 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
             <OrderProductsLayout>
               {orderList.map((item) => (
                 <OrderProductLayout key={item.idx}>
-                  <OrderProductInnerLayout $position="top">
-                    <SummaryStrong $type="normal">{item.option[0]}</SummaryStrong>
+                  <OrderProductInnerLayout $top>
+                    <SummaryStrong>{item.option[0]}</SummaryStrong>
                     <RemoveButton onClick={() => onClickRemoveButton(item)}>X</RemoveButton>
                   </OrderProductInnerLayout>
-                  <OrderProductInnerLayout $position="bottom">
-                    <SummaryStrong $type="normal">- 1 +</SummaryStrong>
-                    <SummaryStrong $type="normal">KRW {convNumberFormat(item.price)}</SummaryStrong>
+                  <OrderProductInnerLayout>
+                    <SummaryStrong>- 1 +</SummaryStrong>
+                    <SummaryStrong>KRW {convNumberFormat(item.price)}</SummaryStrong>
                   </OrderProductInnerLayout>
                 </OrderProductLayout>
               ))}

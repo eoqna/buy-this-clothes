@@ -47,7 +47,7 @@ const FAQs = () => {
 
   return (
     <FlexLayout>
-      <ProductsLayout $right={false}>
+      <ProductsLayout>
         <Title>FAQs</Title>
         {menu.map((item, i) => (
           <MenuLayout key={i} $select={select[i]} onClick={() => onClickMenu(item, i)}>
@@ -55,7 +55,7 @@ const FAQs = () => {
           </MenuLayout>
         ))}
       </ProductsLayout>
-      <PriceLayout $left={false}>
+      <PriceLayout>
         {contents.map((col) => (
           <FAQLayout key={col.idx} onClick={() => onClickFAQ(col.idx)}>
             <TitleLayout>

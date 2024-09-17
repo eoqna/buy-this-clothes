@@ -105,8 +105,8 @@ const UserInfo = ( props: Props ) => {
             onChange={(e) => onChangeMobile(e)}
           />
         </InputLayout>
-        <ButtonLayout $type="sign_up" style={{ marginTop: "2rem"}} onClick={submit}>
-          <ButtonText $position="none">회원정보 수정</ButtonText>
+        <ButtonLayout style={{ marginTop: "2rem"}} onClick={submit}>
+          <ButtonText>회원정보 수정</ButtonText>
         </ButtonLayout>
       </LoginLayout>
     </Layout>

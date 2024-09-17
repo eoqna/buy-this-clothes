@@ -19,7 +19,7 @@ import OrderedInfo from "../components/OrderedInfo";
 
 const MyPage = (props: CommonProps.ComponentProps) => {
   const { navigation } = props;
-  const { logout } = useAccount();
+  const { onLogout } = useAccount();
   const { confirmAction } = useConfirm();
   const [ select, setSelect ] = useState(defaultSelect);
   const [ page, setPage ] = useState("주문내역 조회");
@@ -32,7 +32,7 @@ const MyPage = (props: CommonProps.ComponentProps) => {
     if( menu === "로그아웃" ) {
       confirmAction("로그아웃 하시겠습니까?", 
         () => {
-          logout();
+          onLogout();
           navigation("/");
         },
         () => {},
@@ -48,14 +48,14 @@ const MyPage = (props: CommonProps.ComponentProps) => {
 
   return (
     <FlexLayout>
-      <ProductsLayout $right={false}>
+      <ProductsLayout>
         {menu.map((item, i) => (
           <MenuLayout key={i} $select={select[i]} onClick={() => onClickMenu(item, i)}>
             {item}<Icon path={mdiChevronRight} size={0.8}/>
           </MenuLayout>
         ))}
       </ProductsLayout>
-      <PriceLayout $left={false} style={{marginTop:0}}>
+      <PriceLayout style={{marginTop:0}}>
         <Title>{page}</Title>
         {page === "주문내역 조회" &&
           <OrderedInfo />

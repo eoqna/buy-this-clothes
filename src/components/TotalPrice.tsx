@@ -15,21 +15,21 @@ const TotalPrice = (props: PriceProps) => {
   const { subPrice, shipping, totalPrice } = props;
 
   return (
-    <PriceLayout $left={true}>
+    <PriceLayout $left>
       <TotalSummaryLayout>
         <SummaryLayout>
-          <SummaryStrong $type="normal">Subtotal</SummaryStrong>
+          <SummaryStrong>Subtotal</SummaryStrong>
           <SumarryRightLayout>KRW {subPrice}</SumarryRightLayout>
         </SummaryLayout>
         <SummaryLayout>
-          <SummaryStrong $type="normal">Shipping</SummaryStrong>
+          <SummaryStrong>Shipping</SummaryStrong>
           <SumarryRightLayout>KRW {shipping}</SumarryRightLayout>
         </SummaryLayout>
       </TotalSummaryLayout>
       <TotalPriceLayout>
         <SummaryLayout>
-          <SummaryStrong $type="bold">Total</SummaryStrong>
-          <SumarryRightLayout>KRW <SummaryStrong $type="bold">{totalPrice}</SummaryStrong></SumarryRightLayout>
+          <SummaryStrong $bold>Total</SummaryStrong>
+          <SumarryRightLayout>KRW <SummaryStrong $bold>{totalPrice}</SummaryStrong></SumarryRightLayout>
         </SummaryLayout>
       </TotalPriceLayout>
       <ButtonLayout>

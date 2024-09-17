@@ -35,13 +35,13 @@ export const SummaryLayout = styled.div`
   width: 100%;
 `;
 
-export const TextLayout = styled.div<{ $type: string }>`
-  margin-bottom: ${props => props.$type === "title" ? "1.4rem" : "8px"};
+export const TextLayout = styled.div<{ $title?: boolean }>`
+  margin-bottom: ${({ $title }) => $title ? "1.4rem" : "8px"};
 `;
 
-export const SummaryStrong = styled.strong<{ $type: string }>`
+export const SummaryStrong = styled.strong<{ $bold?: boolean }>`
   font-size: 0.8rem;
-  font-weight: ${(props) => props.$type};
+  ${({ $bold }) => $bold && "font-weight: bold;"}
 `;
 
 export const TotalPriceLayout = styled.div`
@@ -93,13 +93,13 @@ export const OrderProductLayout = styled.div`
   }
 `;
 
-export const OrderProductInnerLayout = styled.div<{ $position: string }>`
+export const OrderProductInnerLayout = styled.div<{ $top?: boolean }>`
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  ${props => props.$position === "top" 
+  ${({ $top }) => $top 
     ? "padding-top: 20px; margin-bottom: 4px;" 
     : "padding-bottom: 20px; marin-top: 4px;"
   }

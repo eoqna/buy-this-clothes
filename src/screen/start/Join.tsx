@@ -97,8 +97,8 @@ const Join = (props: CommonProps.ComponentProps) => {
             onChange={(e) => onChangeMobile(e)}
           />
         </InputLayout>
-        <ButtonLayout $type="sign_up" style={{ marginTop: "2rem"}} onClick={submit}>
-          <ButtonText $position="none">Join</ButtonText>
+        <ButtonLayout style={{ marginTop: "2rem"}} onClick={submit}>
+          <ButtonText>Join</ButtonText>
         </ButtonLayout>
       </LoginLayout>
     </Layout>
