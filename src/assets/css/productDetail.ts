@@ -21,12 +21,12 @@ export const ProductInfoLayout = styled.div`
   z-index: 10000;
 `;
 
-export const ProductSubInfo = styled.div<{ $direction: string }>`
+export const ProductSubInfo = styled.div<{ $left?: boolean }>`
   position: fixed;
   width: 25%;
   top: 50%;
   transform: translate(0, -50%);
-  ${(props) => `${props.$direction}: 1.875rem`};
+  ${({ $left }) => $left ? "left: 1.875rem;" : "right: 1.875rem;"}
 `;
 
 export const SummaryLayout = styled.div`

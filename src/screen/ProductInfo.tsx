@@ -87,7 +87,7 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
         </ProductCenterLayout>
       </Layout>
       <ProductInfoLayout>
-        <ProductSubInfo $direction="left">
+        <ProductSubInfo $left>
           <SummaryLayout>
             <TextLayout $title><SummaryStrong $bold>{name}</SummaryStrong></TextLayout>
             <TextLayout>
@@ -99,7 +99,7 @@ const ProductInfo = (props: CommonProps.ComponentProps) => {
             </TextLayout>
           </SummaryLayout>
         </ProductSubInfo>
-        <ProductSubInfo $direction="right">
+        <ProductSubInfo>
           <TotalPriceLayout>
             <SummaryLayout>
               <TextLayout $title><SummaryStrong $bold>KRW {convNumberFormat(price)}</SummaryStrong></TextLayout>
