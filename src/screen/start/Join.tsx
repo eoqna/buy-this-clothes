@@ -51,7 +51,7 @@ const Join = (props: CommonProps.ComponentProps) => {
 
   return (
     <Layout>
-      <LoginLayout>
+      <LoginLayout $login>
         <InputLayout>
           <Label>ID *</Label>
           <Input

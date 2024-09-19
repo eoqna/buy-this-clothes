@@ -39,8 +39,8 @@ const Cart = () => {
     <FlexLayout>
       <ProductsLayout $right>
         <Title>Cart</Title>
-        {basket.map((item, idx) => (
-          <ProductLayout key={idx}>
+        {basket.map((item) => (
+          <ProductLayout key={item.idx}>
             <ProductImg src={`/img/product/${item.default_img}`}/>
             <ProductInfo>
               <ProductInfoText>{item.name}</ProductInfoText>

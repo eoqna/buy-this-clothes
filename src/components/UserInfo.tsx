@@ -17,7 +17,7 @@ const defaultUserInfo: Props.UserProps = {
 
 interface Props {
   setPage: React.Dispatch<React.SetStateAction<string>>;
-}
+};
 
 const UserInfo = ( props: Props ) => {
   const { setPage } = props;
@@ -60,7 +60,7 @@ const UserInfo = ( props: Props ) => {
 
   return (
     <Layout style={{ paddingTop: 10 }}>
-      <LoginLayout style={{ width: "100%", padding: 0 }}>
+      <LoginLayout>
         <InputLayout>
           <Label>ID *</Label>
           <Input

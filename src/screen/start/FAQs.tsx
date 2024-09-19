@@ -63,10 +63,7 @@ const FAQs = () => {
                 <CategoryText>{`[${col.category}] `}</CategoryText>
                 <ContentText $title>{col.title}</ContentText>
               </TitleTextLayout>
-              {col.open
-                ? <Icon path={mdiChevronUp} size={0.8} color="#ccc" />
-                : <Icon path={mdiChevronDown} size={0.8} color="#ccc" />
-              }
+              <Icon path={col.open ? mdiChevronUp : mdiChevronDown} size={0.8} color="#ccc" />
             </TitleLayout>
             {col.open &&
               <ContentLayout className={`faq_content_${col.idx}`}>

@@ -55,7 +55,7 @@ const MyPage = (props: CommonProps.ComponentProps) => {
           </MenuLayout>
         ))}
       </ProductsLayout>
-      <PriceLayout style={{marginTop:0}}>
+      <PriceLayout style={{ marginTop:0 }}>
         <Title>{page}</Title>
         {page === "주문내역 조회" &&
           <OrderedInfo />

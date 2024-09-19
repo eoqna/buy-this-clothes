@@ -9,9 +9,9 @@ export const Layout = styled.div`
   padding-top: 8rem;
 `;
 
-export const LoginLayout = styled.form`
-  width: 35%;
-  padding: 0 10px;
+export const LoginLayout = styled.form<{ $login?: boolean }>`
+  width: ${({ $login }) => $login ? "35%" : "100%"};
+  padding: ${({ $login }) => $login ? "0 10px" : "0"};
 `;
 
 export const InputLayout = styled.div`

@@ -11,8 +11,8 @@ const OrderedInfo = () => {
 
   return (
     <>
-      {orderList.map((item, idx) => (
-        <ProductLayout key={idx}>
+      {orderList.map((item) => (
+        <ProductLayout key={item.idx}>
           <ProductImg src={`/img/product/${item.default_img}`}/>
           <ProductInfo>
             <ProductInfoText>{item.name}</ProductInfoText>

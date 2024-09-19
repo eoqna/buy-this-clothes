@@ -34,8 +34,8 @@ const Menu = styled.li`
   }
 `;
 
-const Text = styled(Link)<{ $type: string }>`
-  font-size: ${props => props.$type === "menu" ? "0.75rem" : "1.2rem"};
+const Text = styled(Link)<{ $menu?: boolean }>`
+  font-size: ${({ $menu }) => $menu ? "0.75rem" : "1.2rem"};
   color: ${Colors.Black};
   font-weight: bold;
   text-decoration: none;
@@ -59,15 +59,15 @@ const Header = (props: CommonProps.ComponentProps) => {
       <MenuLayout>
         {headerMenu.map((item) => (
           <Menu key={item.idx}>
-            <Text $type="menu" to={item.path}>{item.text}</Text>
+            <Text $menu to={item.path}>{item.text}</Text>
           </Menu>
         ))}
       </MenuLayout>
-      <Text $type="logo" to="/">BUY THIS CLOTHES</Text>
+      <Text to="/">BUY THIS CLOTHES</Text>
       <MenuLayout>
         {menus.map((item) => (
           <Menu key={item.idx}>
-            <Text $type="menu" to={item.path}>
+            <Text $menu to={item.path}>
               {item.text === "Cart" ? `${item.text}(${basket.length})` : item.text}
             </Text>
           </Menu>
