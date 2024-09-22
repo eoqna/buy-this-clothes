@@ -65,7 +65,7 @@ const Join = (props: CommonProps.ComponentProps) => {
           <Label>Password *</Label>
           <Input
             type="password"
-            autoComplete="pw"
+            autoComplete="password"
             value={joinInfo.pw}
             onChange={(e) => setJoinInfo({...joinInfo, pw: e.target.value})}
           />
@@ -74,7 +74,7 @@ const Join = (props: CommonProps.ComponentProps) => {
           <Label>Confirm Password *</Label>
           <Input
             type="password"
-            autoComplete="pw"
+            autoComplete="confirm"
             value={joinInfo.pwck}
             onChange={(e) => setJoinInfo({...joinInfo, pwck: e.target.value})}
           />
@@ -83,7 +83,7 @@ const Join = (props: CommonProps.ComponentProps) => {
           <Label>Name *</Label>
           <Input
             type="text"
-            autoComplete="pw"
+            autoComplete="name"
             value={joinInfo.name}
             onChange={(e) => setJoinInfo({...joinInfo, name: e.target.value})}
           />
